@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next-Level Projects Homepage</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    header {
+        background: linear-gradient(135deg, #006eff, #00d4ff);
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+    }
+    header h1 {
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    header p {
+        font-size: 1.2rem;
+    }
+
+    .project-card {
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+        background-color: white;
+    }
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    .project-card .card-body {
+        padding: 1.5rem;
+    }
+
+    .project-card h4 {
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+    }
+
+    .project-card p {
+        color: #555;
+    }
+
+    .badge-category {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 0.8rem;
+        padding: 0.5em 0.8em;
+        border-radius: 12px;
+    }
+
+    footer {
+        background: #222;
+        color: #aaa;
+        padding: 20px 0;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <h1>My Projects</h1>
+        <p>Daily ideas with modern design and categories</p>
+    </div>
+</header>
+
+<!-- PROJECT LIST -->
+<div class="container my-5">
+    <h3 class="mb-4">Project List</h3>
+    <div id="projectList" class="row g-4">
+        <!-- Projects will render here dynamically -->
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2025 My Projects — Designed with Bootstrap & jQuery</p>
+</footer>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+$(document).ready(function() {
+
+    // Static JSON variable with project data
+    const projects = [
+        {
+            name: "Monthy Habit Tracker",
+            url: "./Monthy-Habit-Tracker_1.1/index.html",
+            detail: "Track your monthly habits easily",
+            category: "Productivity",
+            icon: "fa-check-circle"
+        },
+        {
+            name: "Monthly Task Dashboard",
+            url: "./monthly-task-dashboard/index.html",
+            detail: "Manage your tasks for the month",
+            category: "Dashboard",
+            icon: "fa-tasks"
+        },
+        {
+            name: "My Bucket List",
+            url: "./bucket-list-app/index.html",
+            detail: "Keep track of your life goals",
+            category: "Lifestyle",
+            icon: "fa-star"
+        },
+    ];
+
+    // Render projects dynamically
+    projects.forEach(project => {
+        const card = `
+            <div class="col-md-4">
+                <div class="card project-card shadow-sm position-relative">
+                    <span class="badge bg-primary badge-category">${project.category}</span>
+                    <div class="card-body text-center">
+                        <i class="fa-solid ${project.icon} fa-2x mb-3 text-primary"></i>
+                        <h4>${project.name}</h4>
+                        <p>${project.detail}</p>
+                        <a href="${project.url}" class="btn btn-outline-primary" target="_blank">
+                            <i class="fa-solid fa-arrow-right"></i> Visit
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+        $("#projectList").append(card);
+    });
+
+});
+</script>
+
+</body>
+</html>
